@@ -1,0 +1,317 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TrackerBlockerFramework
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AGDnsProxy
+import SystemConfiguration.CaptiveNetwork
+import Foundation
+import NetworkExtension
+import SafariServices
+import Sentry
+import Swift
+import SystemConfiguration
+@_exported import TrackerBlockerFramework
+import _Concurrency
+import _StringProcessing
+@_inheritsConvenienceInitializers @objc open class DnsTrackerService : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol VpnManagerProtocol {
+  @objc func updateSettings(completion: ((Swift.Error?) -> Swift.Void)?)
+  @objc func removeVpnConfiguration(completion: @escaping (Swift.Error?) -> Swift.Void)
+  @objc func installVpnConfiguration(completion: @escaping (Swift.Error?) -> Swift.Void)
+  @objc var vpnInstalled: Swift.Bool { get }
+  @objc func checkVpnInstalled(completion: @escaping (Swift.Error?) -> Swift.Void)
+  @objc func getConfigurationStatus(callback: @escaping (TrackerBlockerFramework.VpnConfigurationStatus) -> Swift.Void)
+  @objc func migrateOldVpnSettings(completion: @escaping (Swift.Error?) -> Swift.Void)
+}
+@_inheritsConvenienceInitializers @objc open class VpnManagerMigration : ObjectiveC.NSObject {
+  @objc open class func migrateSettingsIfNeeded(resources: TrackerBlockerFramework.AESharedResourcesProtocol, dnsProviders: TrackerBlockerFramework.DnsProvidersServiceProtocol, providerConfiguration: [Swift.String : Any])
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc @objcMembers open class VpnConfigurationStatus : ObjectiveC.NSObject {
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc(DnsLogRecordStatus) public enum DnsLogRecordStatus : Swift.Int {
+  public typealias RawValue = Swift.Int
+  case processed, encrypted, blacklistedByUserFilter, blacklistedByOtherFilter, whitelistedByUserFilter, whitelistedByOtherFilter
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(DnsLogRecordUserStatus) public enum DnsLogRecordUserStatus : Swift.Int {
+  public typealias RawValue = Swift.Int
+  case none, movedToBlacklist, movedToWhitelist, removedFromBlacklist, removedFromWhitelist, modified
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(DnsLogRecord) open class DnsLogRecord : ObjectiveC.NSObject, Foundation.NSCoding {
+  @objc public init(domain: Swift.String, date: Foundation.Date, elapsed: Swift.Int, type: Swift.String, answer: Swift.String, server: Swift.String, upstreamAddr: Swift.String?, bytesSent: Swift.Int, bytesReceived: Swift.Int, status: TrackerBlockerFramework.DnsLogRecordStatus, userStatus: TrackerBlockerFramework.DnsLogRecordUserStatus, blockRules: [Swift.String]?, matchedFilterIds: [Swift.Int]?, originalAnswer: Swift.String?, answerStatus: Swift.String?)
+  @objc public func encode(with aCoder: Foundation.NSCoder)
+  @objc override dynamic open var debugDescription: Swift.String {
+    @objc get
+  }
+  @objc required public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol ComplexProtectionServiceProtocol {
+  @objc func switchComplexProtection(state enabled: Swift.Bool, for VC: UIKit.UIViewController?, completion: @escaping (_ safariError: Swift.Error?, _ systemError: Swift.Error?) -> Swift.Void)
+  @objc func switchSafariProtection(state enabled: Swift.Bool, for VC: UIKit.UIViewController?, completion: @escaping (Swift.Error?) -> Swift.Void)
+  @objc func switchSystemProtection(state enabled: Swift.Bool, for VC: UIKit.UIViewController?, completion: @escaping (Swift.Error?) -> Swift.Void)
+  @objc var safariProtectionEnabled: Swift.Bool { get }
+  @objc var systemProtectionEnabled: Swift.Bool { get }
+  @objc var complexProtectionEnabled: Swift.Bool { get }
+}
+@objc public protocol DnsLogRecordsWriterProtocol {
+  @objc var dnsProxyService: TrackerBlockerFramework.DnsProxyServiceProtocol? { get set }
+  @objc var server: Swift.String { get set }
+  @objc var userFilterId: Foundation.NSNumber? { get set }
+  @objc var whitelistFilterId: Foundation.NSNumber? { get set }
+  @objc var otherFilterIds: [Foundation.NSNumber]? { get set }
+  @objc func handleEvent(_ event: AGDnsProxy.AGDnsRequestProcessedEvent)
+  @objc func flush()
+}
+@_hasMissingDesignatedInitializers @objc open class ActivityStatisticsRecord : ObjectiveC.NSObject {
+  @objc override dynamic public var debugDescription: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc @objcMembers open class SentryConst : ObjectiveC.NSObject {
+  @objc public static let dsnUrl: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc open class TrackerBlocker : ObjectiveC.NSObject {
+  @objc public static let shared: TrackerBlockerFramework.TrackerBlocker
+  @objc public func registerServices()
+  @objc public func startVPNWithFilter(viewController: UIKit.UIViewController, completion: @escaping (Swift.Bool) -> ())
+  @objc public func stopVPN(viewController: UIKit.UIViewController, completion: @escaping (Swift.Bool) -> ())
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc open class DnsLogRecordsWriter : ObjectiveC.NSObject, TrackerBlockerFramework.DnsLogRecordsWriterProtocol {
+  @objc public var whitelistFilterId: Foundation.NSNumber?
+  @objc public var userFilterId: Foundation.NSNumber?
+  @objc public var otherFilterIds: [Foundation.NSNumber]?
+  @objc public var server: Swift.String
+  @objc weak public var dnsProxyService: TrackerBlockerFramework.DnsProxyServiceProtocol?
+  @objc public init(resources: TrackerBlockerFramework.AESharedResourcesProtocol)
+  @objc public func handleEvent(_ event: AGDnsProxy.AGDnsRequestProcessedEvent)
+  @objc public func flush()
+  @objc deinit
+}
+public struct DomainParser {
+  public init(quickParsing: Swift.Bool = false) throws
+  public func parse(host: Swift.String) -> TrackerBlockerFramework.ParsedHost?
+}
+public struct BasicRulesParser {
+  public func parse(host: Swift.String) -> TrackerBlockerFramework.ParsedHost?
+}
+@_hasMissingDesignatedInitializers @objc(DnsFilter) @objcMembers open class DnsFilter : ObjectiveC.NSObject, Foundation.NSCoding {
+  @objc public static let userFilterId: Swift.Int
+  @objc public static let whitelistFilterId: Swift.Int
+  @objc override dynamic open var debugDescription: Swift.String {
+    @objc get
+  }
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @objcMembers open class DnsFiltersService : ObjectiveC.NSObject {
+  @objc public init(resources: TrackerBlockerFramework.AESharedResourcesProtocol, vpnManager: TrackerBlockerFramework.VpnManagerProtocol?, configuration: TrackerBlockerFramework.ConfigurationServiceProtocol, complexProtection: TrackerBlockerFramework.ComplexProtectionServiceProtocol?)
+  @objc public var filtersJson: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+extension TrackerBlockerFramework.DDLogFlag {
+  public static func from(_ logLevel: TrackerBlockerFramework.DDLogLevel) -> TrackerBlockerFramework.DDLogFlag
+  public init(_ logLevel: TrackerBlockerFramework.DDLogLevel)
+  public func toLogLevel() -> TrackerBlockerFramework.DDLogLevel
+}
+public var dynamicLogLevel: TrackerBlockerFramework.DDLogLevel
+@inlinable public func resetDynamicLogLevel() {
+    dynamicLogLevel = .all
+}
+@available(*, deprecated, renamed: "dynamicLogLevel", message: "Please use dynamicLogLevel")
+public var defaultDebugLevel: TrackerBlockerFramework.DDLogLevel {
+  get
+  set
+}
+@available(*, deprecated, renamed: "resetDynamicLogLevel", message: "Please use resetDynamicLogLevel")
+public func resetDefaultDebugLevel()
+@inlinable public func _DDLogMessage(_ message: @autoclosure () -> Swift.String, level: TrackerBlockerFramework.DDLogLevel, flag: TrackerBlockerFramework.DDLogFlag, context: Swift.Int, file: Swift.StaticString, function: Swift.StaticString, line: Swift.UInt, tag: Any?, asynchronous: Swift.Bool, ddlog: TrackerBlockerFramework.DDLog) {
+    // The `dynamicLogLevel` will always be checked here (instead of being passed in). We cannot "mix" it with the `DDDefaultLogLevel`, because otherwise the compiler won't strip strings that are not logged.
+    if level.rawValue & flag.rawValue != 0 && dynamicLogLevel.rawValue & flag.rawValue != 0 {
+        // Tell the DDLogMessage constructor to copy the C strings that get passed to it.
+        let logMessage = DDLogMessage(message: message(), level: level, flag: flag, context: context, file: String(describing: file), function: String(describing: function), line: line, tag: tag, options: [.copyFile, .copyFunction], timestamp: nil)
+        ddlog.log(asynchronous: asynchronous, message: logMessage)
+    }
+}
+@inlinable public func DDLogDebug(_ message: @autoclosure () -> Swift.String, level: TrackerBlockerFramework.DDLogLevel = DDDefaultLogLevel, context: Swift.Int = 0, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line, tag: Any? = nil, asynchronous async: Swift.Bool = false, ddlog: TrackerBlockerFramework.DDLog = DDLog.sharedInstance) {
+    _DDLogMessage(message(), level: level, flag: .debug, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
+}
+@inlinable public func DDLogInfo(_ message: @autoclosure () -> Swift.String, level: TrackerBlockerFramework.DDLogLevel = DDDefaultLogLevel, context: Swift.Int = 0, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line, tag: Any? = nil, asynchronous async: Swift.Bool = false, ddlog: TrackerBlockerFramework.DDLog = DDLog.sharedInstance) {
+    _DDLogMessage(message(), level: level, flag: .info, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
+}
+@inlinable public func DDLogWarn(_ message: @autoclosure () -> Swift.String, level: TrackerBlockerFramework.DDLogLevel = DDDefaultLogLevel, context: Swift.Int = 0, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line, tag: Any? = nil, asynchronous async: Swift.Bool = false, ddlog: TrackerBlockerFramework.DDLog = DDLog.sharedInstance) {
+    _DDLogMessage(message(), level: level, flag: .warning, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
+}
+@inlinable public func DDLogVerbose(_ message: @autoclosure () -> Swift.String, level: TrackerBlockerFramework.DDLogLevel = DDDefaultLogLevel, context: Swift.Int = 0, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line, tag: Any? = nil, asynchronous async: Swift.Bool = false, ddlog: TrackerBlockerFramework.DDLog = DDLog.sharedInstance) {
+    _DDLogMessage(message(), level: level, flag: .verbose, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
+}
+@inlinable public func DDLogError(_ message: @autoclosure () -> Swift.String, level: TrackerBlockerFramework.DDLogLevel = DDDefaultLogLevel, context: Swift.Int = 0, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line, tag: Any? = nil, asynchronous async: Swift.Bool = false, ddlog: TrackerBlockerFramework.DDLog = DDLog.sharedInstance) {
+    _DDLogMessage(message(), level: level, flag: .error, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
+}
+public func currentFileName(_ fileName: Swift.StaticString = #file) -> Swift.String
+@available(*, deprecated, renamed: "currentFileName", message: "Please use currentFileName")
+public func CurrentFileName(_ fileName: Swift.StaticString = #file) -> Swift.String
+@_hasMissingDesignatedInitializers @objc(DnsServerInfo) @objcMembers open class DnsServerInfo : TrackerBlockerFramework.ACObject, Swift.Codable {
+  @objc public var name: Swift.String
+  @objc public var upstreams: [Swift.String]
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func encode(with aCoder: Foundation.NSCoder)
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(DnsProviderInfo) @objcMembers open class DnsProviderInfo : TrackerBlockerFramework.ACObject {
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func encode(with aCoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public enum BlockingModeSettings : Swift.Int {
+  case agDefault = 0
+  case agRefused = 1
+  case agNxdomain = 2
+  case agUnspecifiedAddress = 3
+  case agCustomAddress = 4
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct ParsedHost {
+  public let publicSuffix: Swift.String
+  public let domain: Swift.String?
+}
+@_hasMissingDesignatedInitializers @objc open class DnsProxyUpstream : ObjectiveC.NSObject {
+  @objc deinit
+}
+@objc public protocol DnsProxyServiceProtocol : ObjectiveC.NSObjectProtocol {
+  @objc var upstreamsById: [Swift.Int : TrackerBlockerFramework.DnsProxyUpstream] { get }
+  @objc func start(upstreams: [Swift.String], bootstrapDns: [Swift.String], fallbacks: [Swift.String], serverName: Swift.String, filtersJson: Swift.String, userFilterId: Swift.Int, whitelistFilterId: Swift.Int, ipv6Available: Swift.Bool, rulesBlockingMode: AGDnsProxy.AGBlockingMode, hostsBlockingMode: AGDnsProxy.AGBlockingMode, blockedResponseTtlSecs: Swift.Int, customBlockingIpv4: Swift.String?, customBlockingIpv6: Swift.String?, blockIpv6: Swift.Bool) -> Swift.Bool
+  @objc func stop(callback: @escaping () -> Swift.Void)
+  @objc func resolve(dnsRequest: Foundation.Data, callback: @escaping (_ dnsResponse: Foundation.Data?) -> Swift.Void)
+}
+@objc open class DnsProxyService : ObjectiveC.NSObject, TrackerBlockerFramework.DnsProxyServiceProtocol {
+  @objc public var upstreamsById: [Swift.Int : TrackerBlockerFramework.DnsProxyUpstream]
+  @objc public init(logWriter: TrackerBlockerFramework.DnsLogRecordsWriterProtocol, resources: TrackerBlockerFramework.AESharedResourcesProtocol, dnsProvidersService: TrackerBlockerFramework.DnsProvidersServiceProtocol)
+  @objc public func start(upstreams: [Swift.String], bootstrapDns: [Swift.String], fallbacks: [Swift.String], serverName: Swift.String, filtersJson: Swift.String, userFilterId: Swift.Int, whitelistFilterId: Swift.Int, ipv6Available: Swift.Bool, rulesBlockingMode: AGDnsProxy.AGBlockingMode, hostsBlockingMode: AGDnsProxy.AGBlockingMode, blockedResponseTtlSecs: Swift.Int, customBlockingIpv4: Swift.String?, customBlockingIpv6: Swift.String?, blockIpv6: Swift.Bool) -> Swift.Bool
+  @objc public func stop(callback: @escaping () -> Swift.Void)
+  @objc public func resolve(dnsRequest: Foundation.Data, callback: @escaping (Foundation.Data?) -> Swift.Void)
+  @objc deinit
+}
+@objc open class SimpleConfigurationSwift : ObjectiveC.NSObject, TrackerBlockerFramework.ConfigurationServiceProtocol {
+  @objc public var advancedMode: Swift.Bool
+  @objc public var showStatusBar: Swift.Bool
+  @objc public init(withResources resources: TrackerBlockerFramework.AESharedResourcesProtocol)
+  @objc public var allContentBlockersEnabled: Swift.Bool
+  @objc public var someContentBlockersEnabled: Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc @objcMembers open class AffinityRulesParser : ObjectiveC.NSObject {
+  @objc public func parseStrings(_ strings: [Swift.String], filterId: Foundation.NSNumber) -> [TrackerBlockerFramework.ASDFilterRule]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol ConfigurationServiceProtocol : ObjectiveC.NSObjectProtocol {
+  @objc var advancedMode: Swift.Bool { get set }
+  @objc var showStatusBar: Swift.Bool { get set }
+  @objc var allContentBlockersEnabled: Swift.Bool { get }
+  @objc var someContentBlockersEnabled: Swift.Bool { get }
+}
+@objc public protocol DnsProvidersServiceProtocol {
+  @objc var delegate: TrackerBlockerFramework.DnsProvidersServiceDelegate? { get set }
+  @objc var vpnManager: TrackerBlockerFramework.VpnManagerProtocol? { get set }
+  @objc var allProviders: [TrackerBlockerFramework.DnsProviderInfo] { get }
+  @objc var predefinedProviders: [TrackerBlockerFramework.DnsProviderInfo] { get }
+  @objc var customProviders: [TrackerBlockerFramework.DnsProviderInfo] { get set }
+  @objc var adguardDohServer: TrackerBlockerFramework.DnsServerInfo? { get }
+  @objc var adguardFamilyDohServer: TrackerBlockerFramework.DnsServerInfo? { get }
+  @objc var activeDnsServer: TrackerBlockerFramework.DnsServerInfo? { get set }
+  @objc var activeDnsProvider: TrackerBlockerFramework.DnsProviderInfo? { get }
+  @objc var currentServerName: Swift.String { get }
+  @objc func addCustomProvider(name: Swift.String, upstream: Swift.String, _ onProviderAdded: @escaping () -> Swift.Void)
+  @objc func deleteProvider(_ provider: TrackerBlockerFramework.DnsProviderInfo, _ onProviderDeleted: @escaping () -> Swift.Void)
+  @objc func updateProvider(_ provider: TrackerBlockerFramework.DnsProviderInfo, _ onProviderUpdated: @escaping () -> Swift.Void)
+  @objc func isCustomServer(_ server: TrackerBlockerFramework.DnsServerInfo) -> Swift.Bool
+  @objc func isActiveProvider(_ provider: TrackerBlockerFramework.DnsProviderInfo) -> Swift.Bool
+  @objc func getServer(serverId: Swift.Int) -> TrackerBlockerFramework.DnsServerInfo?
+  @objc func getServerName(serverId: Swift.Int) -> Swift.String?
+  @objc func reset()
+}
+@objc public protocol DnsProvidersServiceDelegate {
+  @objc func dnsProvidersChanged()
+}
+@objc open class DnsProvidersService : ObjectiveC.NSObject, TrackerBlockerFramework.DnsProvidersServiceProtocol {
+  @objc weak public var delegate: TrackerBlockerFramework.DnsProvidersServiceDelegate?
+  @objc weak public var vpnManager: TrackerBlockerFramework.VpnManagerProtocol?
+  @objc convenience public init(resources: TrackerBlockerFramework.AESharedResourcesProtocol)
+  @objc public init(resources: TrackerBlockerFramework.AESharedResourcesProtocol, locale: Swift.String)
+  @objc public var predefinedProviders: [TrackerBlockerFramework.DnsProviderInfo] {
+    @objc get
+  }
+  @objc public var customProviders: [TrackerBlockerFramework.DnsProviderInfo] {
+    @objc get
+    @objc set
+  }
+  @objc public var allProviders: [TrackerBlockerFramework.DnsProviderInfo] {
+    @objc get
+  }
+  @objc public var activeDnsServer: TrackerBlockerFramework.DnsServerInfo? {
+    @objc get
+    @objc set
+  }
+  @objc public var activeDnsProvider: TrackerBlockerFramework.DnsProviderInfo? {
+    @objc get
+  }
+  @objc public func addCustomProvider(name: Swift.String, upstream: Swift.String, _ onProviderAdded: @escaping () -> Swift.Void)
+  @objc public func deleteProvider(_ provider: TrackerBlockerFramework.DnsProviderInfo, _ onProviderDeleted: @escaping () -> Swift.Void)
+  @objc public func updateProvider(_ provider: TrackerBlockerFramework.DnsProviderInfo, _ onProviderUpdated: @escaping () -> Swift.Void)
+  @objc public func isCustomServer(_ server: TrackerBlockerFramework.DnsServerInfo) -> Swift.Bool
+  @objc public func isActiveProvider(_ provider: TrackerBlockerFramework.DnsProviderInfo) -> Swift.Bool
+  @objc public var currentServerName: Swift.String {
+    @objc get
+  }
+  @objc public func getServer(serverId: Swift.Int) -> TrackerBlockerFramework.DnsServerInfo?
+  @objc public func getServerName(serverId: Swift.Int) -> Swift.String?
+  @objc public func reset()
+  @objc public var adguardDohServer: TrackerBlockerFramework.DnsServerInfo? {
+    @objc get
+  }
+  @objc public var adguardFamilyDohServer: TrackerBlockerFramework.DnsServerInfo? {
+    @objc get
+  }
+  @objc deinit
+}
+extension TrackerBlockerFramework.DnsLogRecordStatus : Swift.Equatable {}
+extension TrackerBlockerFramework.DnsLogRecordStatus : Swift.Hashable {}
+extension TrackerBlockerFramework.DnsLogRecordStatus : Swift.RawRepresentable {}
+extension TrackerBlockerFramework.DnsLogRecordUserStatus : Swift.Equatable {}
+extension TrackerBlockerFramework.DnsLogRecordUserStatus : Swift.Hashable {}
+extension TrackerBlockerFramework.DnsLogRecordUserStatus : Swift.RawRepresentable {}
+extension TrackerBlockerFramework.BlockingModeSettings : Swift.Equatable {}
+extension TrackerBlockerFramework.BlockingModeSettings : Swift.Hashable {}
+extension TrackerBlockerFramework.BlockingModeSettings : Swift.RawRepresentable {}

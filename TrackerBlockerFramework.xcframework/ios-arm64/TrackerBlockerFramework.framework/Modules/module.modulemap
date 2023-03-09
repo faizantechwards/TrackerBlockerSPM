@@ -1,0 +1,28 @@
+framework module TrackerBlockerFramework {
+    umbrella header "TrackerBlockerFramework.h"
+    
+    private header "ACNNetworking.h"
+    private header "ACDnsUtils.h"
+    private header "AASFilterSubscriptionParser.h"
+    private header "ASDFilterObjects.h"
+    private header "ACSSystemUtils.h"
+    private header "AESharedResources.h"
+    private header "DDLogMacros.h"
+    private header "Reachability.h"
+    private header "ABECRequest.h"
+    private header "APCommonSharedResources.h"
+    private header "Constants.h"
+    private header "APDnsServerObject.h"
+//    header <AGDnsProxy/AGDnsProxy.h>
+//    private header "ASDatabase.h"
+//    private header "ADBTable.h"
+//    private header "APDnsLogTable.h"
+    
+    export *
+    module * { export * }
+}
+
+module TrackerBlockerFramework.Swift {
+  header "TrackerBlockerFramework-Swift.h"
+  requires objc
+}
