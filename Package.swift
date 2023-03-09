@@ -7,9 +7,10 @@ let package = Package(
     name: "TrackerBlockerSPM",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "TrackerBlockerSPM",
-            targets: ["TrackerBlockerSPM","TrackerBlockerFramework"]),
+//        .library(
+//            name: "TrackerBlockerSPM",
+//            targets: ["TrackerBlockerSPM"]),
+        .library(name: "TrackerBlockerFramework", targets: ["TrackerBlockerFramework"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
