@@ -210,7 +210,7 @@
 		</data>
 		<key>Headers/TrackerBlockerFramework-Swift.h</key>
 		<data>
-		T38QsD3C7ssqiud0P2M4L0Xq82Q=
+		LiD+J5ong9LmdF36AvjLN/StmwE=
 		</data>
 		<key>Headers/TrackerBlockerFramework.h</key>
 		<data>
@@ -222,11 +222,11 @@
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		CkVSuIjXIsVLz42OqrNWdUobd4Y=
+		+a04yIKBxUklWJYANvcr2qtnnbQ=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		BRXogZISJF8GqpjWml1UEJNK+pc=
+		fM/G1ddIb4pAYBqtp+3h7P4t2ZU=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -234,19 +234,19 @@
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		BRXogZISJF8GqpjWml1UEJNK+pc=
+		fM/G1ddIb4pAYBqtp+3h7P4t2ZU=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		uSOZ4gBtR9LmGzZ1d9kifwq6Ed4=
+		FVpSwaIRSGwhITj/jCywQn/Mu+E=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		CkVSuIjXIsVLz42OqrNWdUobd4Y=
+		+a04yIKBxUklWJYANvcr2qtnnbQ=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ccnXOfGcM1k624HrJI+pWYvZLM0=
+		PMa6zyariLjd7UQ0qpowKFhIjsI=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -254,11 +254,11 @@
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ccnXOfGcM1k624HrJI+pWYvZLM0=
+		PMa6zyariLjd7UQ0qpowKFhIjsI=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		rVSYI0fY3fLagGzP5Ek7fB6H108=
+		UK8qcv8/at8S34364lm+Ie0pzgA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -628,7 +628,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lKj6fPvr+s1i3HXkF9xHm2g/oK79wr+bMi0RWHJy0pY=
+			qzBbP3A7i0B8bufFd9+7l67mViWM6JBDjQ7UM+KPFZE=
 			</data>
 		</dict>
 		<key>Headers/TrackerBlockerFramework.h</key>
@@ -642,14 +642,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2KG7NZOsLvW5W0z/twx/3EHTDTP8Hlpf4uP95Y5teQo=
+			MLXXx1xq6huoaM6ErhxxEHhfwca/XDPTJkaCnwQ0SOw=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vXNbRq66GlS+Q6hx6M3xj9ASf9B3u4/RcNbklucxiy4=
+			8xqrXyD5SAvez/0VBtBEMCh9yKDAEilzUDr+5oZQhK8=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -663,28 +663,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vXNbRq66GlS+Q6hx6M3xj9ASf9B3u4/RcNbklucxiy4=
+			8xqrXyD5SAvez/0VBtBEMCh9yKDAEilzUDr+5oZQhK8=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PkMi7Mk5/MJo35VWxpRKd5SOG+2il/eNU0HqPUDJm40=
+			T8zCv2mqYSs0A92exxb4LB2n1Q7gAWkjF6JuwVXSe/4=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2KG7NZOsLvW5W0z/twx/3EHTDTP8Hlpf4uP95Y5teQo=
+			MLXXx1xq6huoaM6ErhxxEHhfwca/XDPTJkaCnwQ0SOw=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CMpyNC7cipLgHJ+g0Kk7I2IzE0Wd1fBsleC2gy/+ydk=
+			1uMbhaEt+0USCTaO4ZFAE4IvvMscHHcBUU6n+rBTafs=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -698,14 +698,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CMpyNC7cipLgHJ+g0Kk7I2IzE0Wd1fBsleC2gy/+ydk=
+			1uMbhaEt+0USCTaO4ZFAE4IvvMscHHcBUU6n+rBTafs=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			imNY+wrURSYi70mKOa1q075tLb3V0gia8f8ehMJCbio=
+			LuAZzlnF93LAQVC9ANBcmsVO6kNwo2zAROOSy+W9CCU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

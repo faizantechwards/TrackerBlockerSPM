@@ -210,7 +210,7 @@
 		</data>
 		<key>Headers/TrackerBlockerFramework-Swift.h</key>
 		<data>
-		PNMc+zip49UqCSYLAN6CoHcXYYA=
+		0Z7HC9IhgdJ9YqZxf99Ds8KDoBo=
 		</data>
 		<key>Headers/TrackerBlockerFramework.h</key>
 		<data>
@@ -222,11 +222,11 @@
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		CkVSuIjXIsVLz42OqrNWdUobd4Y=
+		+a04yIKBxUklWJYANvcr2qtnnbQ=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		siCOQWl8bT6oJLRIEIikK0LXYQ8=
+		DKZjTOfwT9s6ZJs5VKe0cq58OiI=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -234,11 +234,11 @@
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		siCOQWl8bT6oJLRIEIikK0LXYQ8=
+		DKZjTOfwT9s6ZJs5VKe0cq58OiI=
 		</data>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		UrnEoqq9DC26qDbCPPSzgwxN1OE=
+		1cq1WHi/s9apw1bd1uZkCbk68pU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -608,7 +608,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			irq9PNUabqM6ckhKSuzf+EpU6QLyX3PfWVSjuwdgDuM=
+			Y0kfhGbvKVUPggpi+rl/+D58P/IUkMupx+XwyhJ+IqM=
 			</data>
 		</dict>
 		<key>Headers/TrackerBlockerFramework.h</key>
@@ -622,14 +622,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2KG7NZOsLvW5W0z/twx/3EHTDTP8Hlpf4uP95Y5teQo=
+			MLXXx1xq6huoaM6ErhxxEHhfwca/XDPTJkaCnwQ0SOw=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3q+XLLQoEovNB13nMIpR6j494xMrTjYP5X+BD0PcE8w=
+			773R7u+lVbywiGEPV84udXq+wFshBOpa316x0tWrkcs=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -643,14 +643,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3q+XLLQoEovNB13nMIpR6j494xMrTjYP5X+BD0PcE8w=
+			773R7u+lVbywiGEPV84udXq+wFshBOpa316x0tWrkcs=
 			</data>
 		</dict>
 		<key>Modules/TrackerBlockerFramework.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5Cqa42DOM8MGAL9jihZBwlymjux2pJ9p8DTjvafVNYA=
+			wK4N2GsKSbNcARyiIrmELXh0ZFaixOl78QTA9O2LCGg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

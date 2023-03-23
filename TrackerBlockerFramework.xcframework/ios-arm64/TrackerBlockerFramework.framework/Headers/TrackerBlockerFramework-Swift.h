@@ -544,8 +544,11 @@ SWIFT_CLASS("_TtC23TrackerBlockerFramework14TrackerBlocker")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TrackerBlocker * _Nonnull shared;)
 + (TrackerBlocker * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (void)registerServices;
+- (NSInteger)getRulesCount SWIFT_WARN_UNUSED_RESULT;
+- (void)isVPNConnectedWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (void)startVPNWithFilterWithViewController:(UIViewController * _Nonnull)viewController completion:(void (^ _Nonnull)(BOOL))completion;
 - (void)stopVPNWithViewController:(UIViewController * _Nonnull)viewController completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)configureFiltersWithCompletion:(void (^ _Nonnull)(BOOL, NSInteger))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

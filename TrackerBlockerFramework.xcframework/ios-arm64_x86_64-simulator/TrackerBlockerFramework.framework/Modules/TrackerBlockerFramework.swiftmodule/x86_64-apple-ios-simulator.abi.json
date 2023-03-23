@@ -2465,13 +2465,6 @@
         "moduleName": "TrackerBlockerFramework"
       },
       {
-        "kind": "Import",
-        "name": "Sentry",
-        "printedName": "Sentry",
-        "declKind": "Import",
-        "moduleName": "TrackerBlockerFramework"
-      },
-      {
         "kind": "TypeDecl",
         "name": "DnsLogRecordsWriterProtocol",
         "printedName": "DnsLogRecordsWriterProtocol",
@@ -3511,6 +3504,89 @@
           },
           {
             "kind": "Function",
+            "name": "getRulesCount",
+            "printedName": "getRulesCount()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TrackerBlockerFramework@objc(cs)TrackerBlocker(im)getRulesCount",
+            "mangledName": "$s23TrackerBlockerFramework0aB0C13getRulesCountSiyF",
+            "moduleName": "TrackerBlockerFramework",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isVPNConnected",
+            "printedName": "isVPNConnected(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TrackerBlockerFramework@objc(cs)TrackerBlocker(im)isVPNConnectedWithCompletion:",
+            "mangledName": "$s23TrackerBlockerFramework0aB0C14isVPNConnected10completionyySb_s5Error_pSgtc_tF",
+            "moduleName": "TrackerBlockerFramework",
+            "objc_name": "isVPNConnectedWithCompletion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "startVPNWithFilter",
             "printedName": "startVPNWithFilter(viewController:completion:)",
             "children": [
@@ -3595,6 +3671,59 @@
             "mangledName": "$s23TrackerBlockerFramework0aB0C7stopVPN14viewController10completionySo06UIViewG0C_ySbctF",
             "moduleName": "TrackerBlockerFramework",
             "objc_name": "stopVPNWithViewController:completion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "configureFilters",
+            "printedName": "configureFilters(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Swift.Int) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Swift.Int)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TrackerBlockerFramework@objc(cs)TrackerBlocker(im)configureFiltersWithCompletion:",
+            "mangledName": "$s23TrackerBlockerFramework0aB0C16configureFilters10completionyySb_Sitc_tF",
+            "moduleName": "TrackerBlockerFramework",
+            "objc_name": "configureFiltersWithCompletion:",
             "declAttributes": [
               "AccessControl",
               "ObjC"

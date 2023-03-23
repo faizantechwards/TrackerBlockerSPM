@@ -7,7 +7,6 @@ import SystemConfiguration.CaptiveNetwork
 import Foundation
 import NetworkExtension
 import SafariServices
-import Sentry
 import Swift
 import SystemConfiguration
 @_exported import TrackerBlockerFramework
@@ -94,8 +93,11 @@ import _StringProcessing
 @_inheritsConvenienceInitializers @objc open class TrackerBlocker : ObjectiveC.NSObject {
   @objc public static let shared: TrackerBlockerFramework.TrackerBlocker
   @objc public func registerServices()
+  @objc public func getRulesCount() -> Swift.Int
+  @objc public func isVPNConnected(completion: @escaping (Swift.Bool, Swift.Error?) -> ())
   @objc public func startVPNWithFilter(viewController: UIKit.UIViewController, completion: @escaping (Swift.Bool) -> ())
   @objc public func stopVPN(viewController: UIKit.UIViewController, completion: @escaping (Swift.Bool) -> ())
+  @objc public func configureFilters(completion: @escaping (Swift.Bool, Swift.Int) -> ())
   @objc override dynamic public init()
   @objc deinit
 }
