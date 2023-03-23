@@ -7,12 +7,18 @@ let package = Package(
     platforms: [ .iOS(.v11) 
     ],
     products: [
-        .library(name: "TrackerBlockerFramework", targets: ["TrackerBlockerFramework"])
+        .library(name: "TrackerBlockerFramework",
+                 targets: ["TrackerBlockerFramework","AGDnsProxy"]
+                )
     ],
     targets: [
         .binaryTarget(
             name: "TrackerBlockerFramework",
             path: "TrackerBlockerFramework.xcframework"
+        ),
+        .binaryTarget(
+            name: "AGDnsProxy",
+            path: "AGDnsProxy.xcframework"
         )
     ]
 )
