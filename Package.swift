@@ -8,18 +8,13 @@ let package = Package(
     ],
     products: [
         .library(name: "TrackerBlockerFramework",
-                 targets: ["TrackerBlockerFramework","AGDnsProxy"]
+                 targets: ["TrackerBlockerFramework"]
                 )
     ],
     targets: [
         .binaryTarget(
             name: "TrackerBlockerFramework",
             path: "TrackerBlockerFramework.xcframework"
-        ),
-        .binaryTarget(
-            name: "AGDnsProxy",
-            path: "AGDnsProxy.xcframework"
         )
     ]
 )
-//Test comment added

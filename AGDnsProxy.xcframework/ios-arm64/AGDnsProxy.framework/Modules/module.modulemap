@@ -1,5 +1,0 @@
-framework module AGDnsProxy {
-    umbrella header "AGDnsProxy.h"
-    export *
-    module * { export * }
-}
