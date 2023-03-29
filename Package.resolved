@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "dnslibs",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AdguardTeam/DnsLibs",
+      "state" : {
+        "revision" : "d135d0bd9fa6d52b4e16934fb573f000c72f855a",
+        "version" : "1.7.43"
+      }
+    }
+  ],
+  "version" : 2
+}

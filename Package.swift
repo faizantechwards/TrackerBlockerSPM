@@ -11,10 +11,14 @@ let package = Package(
                  targets: ["TrackerBlockerFramework"]
                 )
     ],
+    dependencies: [
+            .package(url: "https://github.com/AdguardTeam/DnsLibs", from: "1.6.53"),
+    ],
     targets: [
         .binaryTarget(
             name: "TrackerBlockerFramework",
             path: "TrackerBlockerFramework.xcframework"
         )
+        
     ]
 )
