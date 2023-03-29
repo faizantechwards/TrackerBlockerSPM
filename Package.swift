@@ -18,7 +18,10 @@ let package = Package(
         .binaryTarget(
             name: "TrackerBlockerFramework",
             path: "TrackerBlockerFramework.xcframework"
-        )
+        ),
+
+            .target(name: "TrackerBlockerFramework",
+                    dependencies: ["AGDnsProxy"])
         
     ]
 )
